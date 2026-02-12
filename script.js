@@ -68,3 +68,36 @@ document.getElementById("lightboxModal")
   .addEventListener("click", (e) => {
     if (e.target.id === "lightboxModal") closeLightbox();
   });
+// ===== CLICK NỔ ẢNH VŨ TRỤ =====
+
+const imageList = [
+  "images/1.jpg",
+  "images/2.jpg",
+  "images/3.jpg",
+  "images/4.jpg"
+];
+
+document.addEventListener("click", function (e) {
+
+  for (let i = 0; i < 12; i++) {
+
+    const img = document.createElement("img");
+    img.src = imageList[Math.floor(Math.random() * imageList.length)];
+    img.className = "floating-image";
+
+    // Vị trí xuất hiện xung quanh điểm click
+    const offsetX = (Math.random() - 0.5) * 300;
+    const offsetY = (Math.random() - 0.5) * 300;
+
+    img.style.left = e.clientX + offsetX + "px";
+    img.style.top = e.clientY + offsetY + "px";
+
+    document.body.appendChild(img);
+
+    // Tự xoá sau 4s
+    setTimeout(() => {
+      img.remove();
+    }, 4000);
+  }
+
+});
