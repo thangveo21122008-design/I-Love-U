@@ -1,4 +1,4 @@
-* {
+.* {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
@@ -130,3 +130,28 @@ body {
   z-index:999;
   transition:1s;
 }
+/* Ảnh bay vũ trụ */
+.floating-image {
+  position: absolute;
+  width: 90px;
+  height: 110px;
+  object-fit: cover;
+  border-radius: 12px;
+  pointer-events: none;
+  transform-style: preserve-3d;
+  animation: floatUp 4s ease-out forwards;
+}
+
+@keyframes floatUp {
+  0% {
+    opacity: 0;
+    transform: scale(0.5) rotateY(0deg);
+  }
+  20% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+    transform: translateY(-200px) scale(1.2) rotateY(360deg);
+  }
+      }
